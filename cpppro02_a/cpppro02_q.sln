@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpppro02_q", "cpppro02_q.vcxproj", "{FDB72453-551C-4ED4-BDD7-13D691B5D17E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDB72453-551C-4ED4-BDD7-13D691B5D17E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FDB72453-551C-4ED4-BDD7-13D691B5D17E}.Debug|Win32.Build.0 = Debug|Win32
+		{FDB72453-551C-4ED4-BDD7-13D691B5D17E}.Release|Win32.ActiveCfg = Release|Win32
+		{FDB72453-551C-4ED4-BDD7-13D691B5D17E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

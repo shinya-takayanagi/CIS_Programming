@@ -9,6 +9,7 @@ HINSTANCE hInst;
 
 // このコード モジュールに含まれる関数の宣言を転送します:
 INT_PTR CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK	BmiWindowProc(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -113,6 +114,44 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			sprintf(sOut, "結果は%xです。", result);
 			MessageBox(hDlg, sOut, "結果", MB_OK);
+		}
+		else if (LOWORD(wParam) == IDC_BUTTON4) {
+//			MessageBox(hDlg, "text", "caption", MB_OK);
+			DialogBox(hInst, MAKEINTRESOURCE(IDD_DIALOG1), hDlg, BmiWindowProc);
+		}
+		break;
+	}
+	return (INT_PTR)FALSE;
+}
+
+INT_PTR CALLBACK BmiWindowProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	UNREFERENCED_PARAMETER(lParam);
+	switch (message){
+	case WM_INITDIALOG:
+		return (INT_PTR)TRUE;
+		break;
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDC_BUTTON1){
+			// Q7A
+			double result = 0;
+			double value1 = 0;
+			double value2 = 0;
+			char sBuf[256];
+			GetWindowText(GetDlgItem(hDlg, IDC_EDIT1), sBuf, sizeof(sBuf) - 1);
+			value1 = atof(sBuf);
+			GetWindowText(GetDlgItem(hDlg, IDC_EDIT2), sBuf, sizeof(sBuf) - 1);
+			value2 = atof(sBuf);
+			result = value2 / (value1 / 100) / (value1 / 100);
+
+			char sOut[256];
+			memset(sOut, 0, sizeof(sOut));
+			sprintf(sOut, "結果は%fです。", result);
+			MessageBox(hDlg, sOut, "結果", MB_OK);
+			// Q7E
+		}
+		else if (LOWORD(wParam) == IDCANCEL){
+			EndDialog(hDlg, NULL);
 		}
 		break;
 	}
