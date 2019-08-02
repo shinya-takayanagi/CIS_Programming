@@ -1,0 +1,20 @@
+﻿2019/08/02 19:18:13 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "Y:\github\CIS_Programming\cpppro03_q\cpppro03_q.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\cpppro03_q.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\cpppro03_q.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cpppro03_q.cpp
+         cpppro03_q.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /l"0x0409" /nologo /fo"Debug\cpppro03_q.res" cpppro03_q.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Y:\github\CIS_Programming\cpppro03_q\Debug\cpppro03_q.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Y:\github\CIS_Programming\cpppro03_q\Debug\cpppro03_q.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Y:\github\CIS_Programming\cpppro03_q\Debug\cpppro03_q.lib" /MACHINE:X86 /SAFESEH Debug\cpppro03_q.res
+         Debug\cpppro03_q.obj
+         Debug\stdafx.obj
+     1>cpppro03_q.obj : warning LNK4075: /EDITANDCONTINUE は /SAFESEH の指定によって無視されます。
+         cpppro03_q.vcxproj -> Y:\github\CIS_Programming\cpppro03_q\Debug\cpppro03_q.exe
+     1>プロジェクト "Y:\github\CIS_Programming\cpppro03_q\cpppro03_q.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:03.91
