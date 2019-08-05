@@ -13,6 +13,7 @@
 #define IDC_CPPPRO03_Q			109
 #define IDC_COMBO_P1            1000
 #define IDC_COMBO_P2            1001
+#define IDC_BUTTON_AIKO         1002
 
 #define IDC_MYICON				2
 #ifndef IDC_STATIC

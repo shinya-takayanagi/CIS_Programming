@@ -139,7 +139,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		CreateWindow("Static", "P2", WS_CHILD | WS_VISIBLE, 300, 80, 80, 20, hWnd, NULL, hInst, NULL);
 		hCmbP1 = CreateWindow("ComboBox", "", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, 100, 100, 80, 120, hWnd, (HMENU)IDC_COMBO_P1, hInst, NULL);
 		hCmbP2 = CreateWindow("ComboBox", "", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, 300, 100, 80, 120, hWnd, (HMENU)IDC_COMBO_P2, hInst, NULL);
-		
+
+		// Q1A
+		CreateWindow("Button", "あいこ", WS_CHILD | WS_VISIBLE, 100, 160, 80, 30, hWnd, (HMENU)IDC_BUTTON_AIKO, hInst, NULL);
+		// Q1E
+
 		ComboBox_AddString(hCmbP1, "グー");
 		ComboBox_AddString(hCmbP1, "チー");
 		ComboBox_AddString(hCmbP1, "パー");
@@ -156,6 +160,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// 選択されたメニューの解析:
 		switch (wmId)
 		{
+
+			// Q1A
+		case IDC_BUTTON_AIKO:
+			MessageBox(hWnd, "あいこです。", "", MB_OK);
+			break;
+			// Q1E
+
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
 			break;
