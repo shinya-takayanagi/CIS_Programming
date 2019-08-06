@@ -144,6 +144,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		CreateWindow("Button", "あいこ", WS_CHILD | WS_VISIBLE, 100, 160, 80, 30, hWnd, (HMENU)IDC_BUTTON_AIKO, hInst, NULL);
 		// Q1E
 
+		// Q2A
+		CreateWindow("Button", "じゃんけん(if)", WS_CHILD | WS_VISIBLE, 200, 160, 120, 30, hWnd, (HMENU)IDC_BUTTON_JANKENIF, hInst, NULL);
+		// Q2E
+
 		ComboBox_AddString(hCmbP1, "グー");
 		ComboBox_AddString(hCmbP1, "チー");
 		ComboBox_AddString(hCmbP1, "パー");
@@ -166,6 +170,53 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			MessageBox(hWnd, "あいこです。", "", MB_OK);
 			break;
 			// Q1E
+
+			// Q2A
+		case IDC_BUTTON_JANKENIF:
+		{
+			int p1 = ComboBox_GetCurSel(hCmbP1);
+			int p2 = ComboBox_GetCurSel(hCmbP2);
+			BOOL p1Win = FALSE;
+			BOOL p2Win = FALSE;
+			if (p1 == 0){ //グー
+				if (p2 == 1){
+					p1Win = TRUE;
+				}
+				else if (p2 == 2){
+					p2Win = TRUE;
+				}
+			}
+			else if (p1 == 1){ //チー
+				if (p2 == 2){
+					p1Win = TRUE;
+				}
+				else if (p2 == 0){
+					p2Win = TRUE;
+				}
+			}
+			else{ //パー
+				if (p2 == 0){
+					p1Win = TRUE;
+				}
+				else if (p2 == 1){
+					p2Win = TRUE;
+				}
+			}
+			char sOut[100];
+			memset(sOut, 0, sizeof(sOut));
+			if (p1Win){
+				strcpy(sOut, "P1のかちです");
+			}
+			else if (p2Win){
+				strcpy(sOut, "P2のかちです");
+			}
+			else{
+				strcpy(sOut, "あいこです。");
+			}
+			MessageBox(hWnd, sOut, "", MB_OK);
+		}
+		break;
+		// Q2E
 
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
