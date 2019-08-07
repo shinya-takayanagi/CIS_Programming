@@ -15,6 +15,7 @@
 #define IDC_COMBO_P2            1001
 #define IDC_BUTTON_AIKO         1002
 #define	IDC_BUTTON_JANKENIF		1003
+#define IDC_BUTTON_JANKENSW		1004
 
 #define IDC_MYICON				2
 #ifndef IDC_STATIC
