@@ -3,6 +3,9 @@
 
 #include "stdafx.h"
 #include "cpppro03_q.h"
+// Q5A
+#include <stdio.h>
+// Q5E
 
 #define MAX_LOADSTRING 100
 
@@ -13,6 +16,12 @@ TCHAR szWindowClass[MAX_LOADSTRING];			// メイン ウィンドウ クラス名
 
 HWND hCmbP1;
 HWND hCmbP2;
+
+// Q5A
+HWND hStP1;
+HWND hStP2;
+int win[2];
+// Q5E
 
 // このコード モジュールに含まれる関数の宣言を転送します:
 ATOM				MyRegisterClass(HINSTANCE hInstance);
@@ -156,6 +165,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		CreateWindow("Button", "じゃんけん(?)", WS_CHILD | WS_VISIBLE, 500, 160, 160, 30, hWnd, (HMENU)IDC_BUTTON_JANKENQ, hInst, NULL);
 		// Q4E
 
+		// Q5A
+		hStP1 = CreateWindow("Static", "0", WS_CHILD | WS_VISIBLE, 100, 130, 80, 20, hWnd, NULL, hInst, NULL);
+		hStP2 = CreateWindow("Static", "0", WS_CHILD | WS_VISIBLE, 300, 130, 80, 20, hWnd, NULL, hInst, NULL);
+		win[0] = 0;
+		win[1] = 0;
+		// Q5E
+
 		ComboBox_AddString(hCmbP1, "グー");
 		ComboBox_AddString(hCmbP1, "チー");
 		ComboBox_AddString(hCmbP1, "パー");
@@ -214,14 +230,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			memset(sOut, 0, sizeof(sOut));
 			if (p1Win){
 				strcpy(sOut, "P1のかちです");
+				// Q5A
+				win[0]++;
+				// Q5E
 			}
 			else if (p2Win){
 				strcpy(sOut, "P2のかちです");
+				// Q5A
+				win[1]++;
+				// Q5E
 			}
 			else{
 				strcpy(sOut, "あいこです。");
 			}
 			MessageBox(hWnd, sOut, "", MB_OK);
+			// Q5A
+			char sNum[10];
+			sprintf(sNum, "%d", win[0]);
+			SetWindowText(hStP1, sNum);
+			sprintf(sNum, "%d", win[1]);
+			SetWindowText(hStP2, sNum);
+			// Q5E
 		}
 		break;
 		// Q2E
@@ -269,14 +298,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			memset(sOut, 0, sizeof(sOut));
 			if (p1Win){
 				strcpy(sOut, "P1のかちです");
+				// Q5A
+				win[0]++;
+				// Q5E
 			}
 			else if (p2Win){
 				strcpy(sOut, "P2のかちです");
+				// Q5A
+				win[1]++;
+				// Q5E
 			}
 			else{
 				strcpy(sOut, "あいこです。");
 			}
 			MessageBox(hWnd, sOut, "", MB_OK);
+			// Q5A
+			char sNum[10];
+			sprintf(sNum, "%d", win[0]);
+			SetWindowText(hStP1, sNum);
+			sprintf(sNum, "%d", win[1]);
+			SetWindowText(hStP2, sNum);
+			// Q5E
 		}
 		break;
 		// Q3E
@@ -292,14 +334,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			memset(sOut, 0, sizeof(sOut));
 			if (p1Win){
 				strcpy(sOut, "P1のかちです");
+				// Q5A
+				win[0]++;
+				// Q5E
 			}
 			else if (p2Win){
 				strcpy(sOut, "P2のかちです");
+				// Q5A
+				win[1]++;
+				// Q5E
 			}
 			else{
 				strcpy(sOut, "あいこです。");
 			}
 			MessageBox(hWnd, sOut, "", MB_OK);
+			// Q5A
+			char sNum[10];
+			sprintf(sNum, "%d", win[0]);
+			SetWindowText(hStP1, sNum);
+			sprintf(sNum, "%d", win[1]);
+			SetWindowText(hStP2, sNum);
+			// Q5E
 		}
 		break;
 		// Q4E
