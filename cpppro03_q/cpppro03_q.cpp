@@ -20,8 +20,16 @@ HWND hCmbP2;
 // Q5A
 HWND hStP1;
 HWND hStP2;
-int win[2];
+#if 0 // Q6R
+//int win[2];
+#else // Q6
+int win[3];
+#endif // Q6E
 // Q5E
+// Q6A
+HWND hSt[3];
+HWND hCmb[3];
+// Q6E
 
 // このコード モジュールに含まれる関数の宣言を転送します:
 ATOM				MyRegisterClass(HINSTANCE hInstance);
@@ -168,8 +176,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// Q5A
 		hStP1 = CreateWindow("Static", "0", WS_CHILD | WS_VISIBLE, 100, 130, 80, 20, hWnd, NULL, hInst, NULL);
 		hStP2 = CreateWindow("Static", "0", WS_CHILD | WS_VISIBLE, 300, 130, 80, 20, hWnd, NULL, hInst, NULL);
-		win[0] = 0;
-		win[1] = 0;
+#if 0 // Q6R
+		//		win[0] = 0;
+		//		win[1] = 0;
+#else // Q6
+		CreateWindow("Static", "P3", WS_CHILD | WS_VISIBLE, 500, 80, 80, 20, hWnd, NULL, hInst, NULL);
+		hCmb[0] = hCmbP1;
+		hCmb[1] = hCmbP2;
+		hCmb[2] = CreateWindow("ComboBox", "", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, 500, 100, 80, 120, hWnd, (HMENU)IDC_COMBO_P3, hInst, NULL);
+		CreateWindow("Button", "3人じゃんけん", WS_CHILD | WS_VISIBLE, 640, 160, 120, 30, hWnd, (HMENU)IDC_BUTTON_3JANKEN, hInst, NULL);
+		hSt[0] = hStP1;
+		hSt[1] = hStP2;
+		hSt[2] = CreateWindow("Static", "0", WS_CHILD | WS_VISIBLE, 500, 130, 80, 20, hWnd, NULL, hInst, NULL);
+		memset(win, 0, sizeof(win));
+#endif // Q6E
 		// Q5E
 
 		ComboBox_AddString(hCmbP1, "グー");
@@ -180,6 +200,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		ComboBox_AddString(hCmbP2, "チー");
 		ComboBox_AddString(hCmbP2, "パー");
 		ComboBox_SetCurSel(hCmbP2, 0);
+		// Q6A
+		ComboBox_AddString(hCmb[2], "グー");
+		ComboBox_AddString(hCmb[2], "チー");
+		ComboBox_AddString(hCmb[2], "パー");
+		ComboBox_SetCurSel(hCmb[2], 0);
+		// Q6E
 
 		break;
 	case WM_COMMAND:
@@ -358,6 +384,65 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 		break;
 		// Q4E
+		// Q6A
+		case IDC_BUTTON_3JANKEN:
+		{
+			// ループ処理使用の回答例(わからない場合は次回以降講義資料参照下さい)
+			// じゃんけん結果を配列で保持 TRUE:勝ち/あいこ　FALSE:負け
+			BOOL jkResult[3][3] = { { TRUE, TRUE, FALSE }, { FALSE, TRUE, TRUE }, { TRUE, FALSE, TRUE } };
+
+			int p[3];
+			BOOL pWin[3];
+			for (int i = 0; i < 3; i++){
+				p[i] = ComboBox_GetCurSel(hCmb[i]);
+				pWin[i] = TRUE;
+			}
+			// 3人じゃんけん
+			// 2人じゃんけんに変換し、それぞれが負けていないかを判断
+			for (int i = 0; i < 3; i++){
+				for (int j = 0; j < 3; j++){
+					if (i == j){
+						continue;
+					}
+					if (pWin[i]){ //負けた場合はじゃんけんスキップ
+						pWin[i] = jkResult[p[i]][p[j]];
+					}
+				}
+			}
+			char sOut[100];
+			memset(sOut, 0, sizeof(sOut));
+			// 全員負けてない/負けた＝あいこ
+			if (pWin[0] == pWin[1] && pWin[0] == pWin[2]){
+				strcpy(sOut, "あいこです。");
+			}
+			else{
+				char sWin[10];
+				memset(sWin, 0, sizeof(sWin));
+				for (int i = 0; i < 3; i++){
+					if (pWin[i]){
+						if (sWin[0] == 0){
+							sprintf(sWin, "P%d", i + 1);
+						}
+						else{
+							char sTmp[10];
+							memset(sTmp, 0, sizeof(sTmp));
+							sprintf(sTmp, ",P%d", i + 1);
+							strcat(sWin, sTmp);
+						}
+						win[i]++;
+					}
+				}
+				sprintf(sOut, "%sのかちです。", sWin);
+			}
+			MessageBox(hWnd, sOut, "", MB_OK);
+			char sNum[10];
+			for (int i = 0; i < 3; i++){
+				sprintf(sNum, "%d", win[i]);
+				SetWindowText(hSt[i], sNum);
+			}
+		}
+		break;
+		// Q6E
 
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
