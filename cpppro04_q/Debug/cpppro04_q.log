@@ -1,0 +1,19 @@
+﻿2019/08/19 20:01:10 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "Y:\github\CIS_Programming\cpppro04_q\cpppro04_q.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\cpppro04_q.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cpppro04_q.cpp
+         cpppro04_q.cpp
+     1>y:\github\cis_programming\cpppro04_q\cpppro04_q.cpp(209): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 'sprintf' の宣言を確認してください。
+     1>y:\github\cis_programming\cpppro04_q\cpppro04_q.cpp(222): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 'sprintf' の宣言を確認してください。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Y:\github\CIS_Programming\cpppro04_q\Debug\cpppro04_q.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Y:\github\CIS_Programming\cpppro04_q\Debug\cpppro04_q.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Y:\github\CIS_Programming\cpppro04_q\Debug\cpppro04_q.lib" /MACHINE:X86 /SAFESEH Debug\cpppro04_q.res
+         Debug\cpppro04_q.obj
+         Debug\stdafx.obj
+         cpppro04_q.vcxproj -> Y:\github\CIS_Programming\cpppro04_q\Debug\cpppro04_q.exe
+     1>プロジェクト "Y:\github\CIS_Programming\cpppro04_q\cpppro04_q.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:02.60
